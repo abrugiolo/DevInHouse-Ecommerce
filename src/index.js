@@ -1,14 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import theme from "./utils/theme"
+import theme from "./utils/theme";
 import {MuiThemeProvider, CssBaseline } from "@material-ui/core";
-import Card from './components/card/card';
+import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import routes from './routes';
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
-      <Card />
+    <Router basename = {"ecommerce"} >
+      <Switch>
+        {routes.map(route => (
+          <Route 
+          key = {route.path} 
+          path = {route.path}
+          component = {route.component}
+          exact = {route.exact}
+          />
+        ))}
+      </Switch>
+    </Router>
   </MuiThemeProvider>,
   document.getElementById('root')
 );
