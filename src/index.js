@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import theme from "./utils/theme"
 import {MuiThemeProvider, CssBaseline } from "@material-ui/core";
-
+import Card from './components/card/card';
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
-      <div>Olá Mundo!</div>
+      <Card />
   </MuiThemeProvider>,
   document.getElementById('root')
 );
