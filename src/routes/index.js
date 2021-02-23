@@ -31,7 +31,7 @@ const routes = [
 
 export default function Routes () {
     return (
-        <Router basename="ecommerce" >
+        <Router>
             <Switch>
                 {routes.map(route => (
                 <Route 
