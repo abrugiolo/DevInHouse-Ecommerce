@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import theme from "./utils/theme"
+import {MuiThemeProvider, CssBaseline } from "@material-ui/core";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <MuiThemeProvider theme={theme}>
+    <CssBaseline />
+      <div>Olá Mundo!</div>
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 
