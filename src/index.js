@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import theme from "./utils/theme"
+import theme from "./utils/theme";
 import {MuiThemeProvider, CssBaseline } from "@material-ui/core";
-import Card from './components/card/card';
+import Router from "./routes"
+
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
-      <Card />
+    <Router />
   </MuiThemeProvider>,
   document.getElementById('root')
 );
