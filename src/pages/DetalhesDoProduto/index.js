@@ -1,6 +1,10 @@
-export default function DetalhesDoProduto () { 
-    return (
-        <div>DetalhesDoProduto</div>
-    ) 
-    
-};
+import { Header } from "../../components";
+
+export default function DetalhesDoProduto() {
+  return (
+    <>
+      <Header />
+      DetalhesDoProduto
+    </>
+  );
+}
