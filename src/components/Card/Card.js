@@ -5,14 +5,11 @@ import {
   CardContent,
 } from "@material-ui/core";
 import "./Card.css";
-import image1 from "../../assets/image1.png";
 import { useHistory } from "react-router-dom";
 import ShoppingButton from "../ShoppingButton";
 
-
-
-function Card({product}) {
-  const installmentsPayment = 10
+function Card({ product }) {
+  const installmentsPayment = 10;
   const history = useHistory();
   /*const product = {
     id: 43900,
@@ -26,8 +23,8 @@ function Card({product}) {
       "http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_sa.jpg",
   }*/
 
-  return ( 
-    <Box className="Card">
+  return (
+    <Box key={product.id} className="Card">
       <CardWrapper>
         <Box className="Card-img-content">
           <img
@@ -51,12 +48,15 @@ function Card({product}) {
               currency: "BRL",
             })}
           </Typography>
-          <Typography variant="body1">ou {installmentsPayment}x de { (product.price/installmentsPayment).toLocaleString("pt-BR", {
+          <Typography variant="body1">
+            ou {installmentsPayment}x de{" "}
+            {(product.price / installmentsPayment).toLocaleString("pt-BR", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
               //style: "currency",
               currency: "BRL",
-            }) }</Typography>
+            })}
+          </Typography>
           <Box mb={2}></Box>
           <ShoppingButton />
         </CardContent>

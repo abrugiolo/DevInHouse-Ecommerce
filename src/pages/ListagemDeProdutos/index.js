@@ -1,18 +1,28 @@
 import { Box, Typography } from "@material-ui/core";
+import { useEffect, useState } from "react";
 import { Card, PageWrapper } from "../../components";
-import { PRODUCTS_MOCK } from "../../utils/api"
+import { fetchProducts } from "../../utils/api";
 
 export default function ListagemDeProdutos() {
-  const productList = PRODUCTS_MOCK 
+  const [productList, setProductList] = useState([]);
+  useEffect(() => {
+    //fetchProducts().then((response) => setProductList(response));
+    getProducts();
+  }, []);
+  const getProducts = async () => {
+    const response = await fetchProducts();
+    setProductList(response);
+  };
+
   return (
     <PageWrapper>
       <div>ListagemDeProdutos</div>
       <Box>
         <Typography variant="h1">Bem Vindo!</Typography>
       </Box>
-        {productList.map(product => (
-          <Card product={product} />  
-        ))}
+      {productList?.map((product) => (
+        <Card product={product} />
+      ))}
     </PageWrapper>
   );
 }
