@@ -1,9 +1,8 @@
-import { Card, Header } from "../../components";
+import { Card } from "../../components";
 
 export default function ListagemDeProdutos() {
   return (
     <>
-      <Header />
       <div>ListagemDeProdutos</div>
       <Card />
     </>

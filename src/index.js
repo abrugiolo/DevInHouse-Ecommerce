@@ -6,11 +6,13 @@ import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
 import Router from "./routes";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import { Header } from "./components";
 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
+      <Header />
       <Router />
     </MuiThemeProvider>
   </Provider>,

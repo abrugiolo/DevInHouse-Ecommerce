@@ -6,10 +6,5 @@ export default function BuscaDeProdutos() {
   const inputSearch = useSelector(getInputSearch);
   console.log(inputSearch);
 
-  return (
-    <>
-      <Header />
-      BuscaDeProdutos
-    </>
-  );
+  return <>BuscaDeProdutos</>;
 }
