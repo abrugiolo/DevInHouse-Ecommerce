@@ -11,7 +11,7 @@ ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <Router />
+        <Router />
     </MuiThemeProvider>
   </Provider>,
   document.getElementById("root")

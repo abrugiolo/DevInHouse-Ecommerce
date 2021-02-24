@@ -1,6 +1,5 @@
-export default function Carrinho () { 
-    return (
-        <div>Carrinho</div>
-    ) 
-    
-};
+import { PageWrapper } from "../../components";
+
+export default function Carrinho() {
+  return <PageWrapper>Carrinho</PageWrapper>;
+}
