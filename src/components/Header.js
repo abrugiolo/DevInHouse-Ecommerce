@@ -12,7 +12,7 @@ const ToolbarStyled = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
   @media screen and (max-width: 800px) {
-    padding: 4px 18px;
+    padding: 6px 18px;
   }
 `;
 
