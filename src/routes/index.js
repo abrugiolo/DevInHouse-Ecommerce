@@ -4,6 +4,7 @@ import Carrinho from "../pages/Carrinho";
 import BuscaDeProdutos from "../pages/BuscaDeProdutos";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Header } from "../components";
 
 const routes = [
   {
@@ -28,6 +29,7 @@ const routes = [
 export default function Routes() {
   return (
     <Router>
+      <Header />
       <Switch>
         {routes.map((route) => (
           <Route
