@@ -1,3 +1,5 @@
+import { PageWrapper } from "../../components";
+
 export default function DetalhesDoProduto() {
-  return <>DetalhesDoProduto</>;
+  return <PageWrapper>DetalhesDoProduto</PageWrapper>;
 }
