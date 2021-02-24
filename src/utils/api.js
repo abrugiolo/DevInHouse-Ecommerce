@@ -14,7 +14,7 @@ export const queryProducts = (term) =>
     setTimeout(fetch, 2500);
   });
 
-const PRODUCTS_MOCK = [
+export const PRODUCTS_MOCK = [
   {
     id: 43900,
     name: "Duracell - AAA Batteries (4-Pack)",
