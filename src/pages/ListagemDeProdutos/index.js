@@ -1,14 +1,10 @@
-import Card from "../../components/card/card";
+import { Card, PageWrapper } from "../../components";
 
-export default function ListagemDeProdutos () { 
-    return (
-        <div>
-             <div>ListagemDeProdutos</div>
-             <Card />
-        </div>
-       
-        
-        
-    )
-    
-};
+export default function ListagemDeProdutos() {
+  return (
+    <PageWrapper>
+      <div>ListagemDeProdutos</div>
+      <Card />
+    </PageWrapper>
+  );
+}

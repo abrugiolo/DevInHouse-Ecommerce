@@ -1,4 +1,6 @@
+
 import { fetchProducts, queryProducts } from "../../utils/api";
+import { PageWrapper } from "../../components";
 
 async function teste() {
   const produtos = await fetchProducts();
@@ -6,6 +8,7 @@ async function teste() {
 }
 teste();
 
+
 export default function DetalhesDoProduto() {
-  return <div>DetalhesDoProduto</div>;
+  return <PageWrapper>DetalhesDoProduto</PageWrapper>;
 }
