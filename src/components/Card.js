@@ -32,7 +32,7 @@ const CardContentStyled = styled(CardContent)`
 function Card({ product }) {
   const history = useHistory();
 
-  const [clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState(false);
 
   return (
     <BoxWrapper key={product.id}>
@@ -45,7 +45,7 @@ function Card({ product }) {
       </CardImageContent>
       <CardContentStyled>
         <Box mb={2}>
-          <Typography variant="h4" onClick={() => history.push("/detalhes")}>
+          <Typography noWrap variant="h4" onClick={() => history.push("/detalhes")}>
             {product.name}
           </Typography>
         </Box>
