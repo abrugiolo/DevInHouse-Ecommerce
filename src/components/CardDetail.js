@@ -37,17 +37,11 @@ function CardDetail({ product }) {
   return (
     <BoxWrapper key={product.id}>
       <CardImageContent>
-        <CardImg
-          src={product.image}
-          alt="imagem"
-          onClick={() => history.push("/detalhes")}
-        />
+        <CardImg src={product.image} alt="imagem" />
       </CardImageContent>
       <CardContentStyled>
         <Box mb={2}>
-          <Typography variant="h4" onClick={() => history.push("/detalhes")}>
-            {product.description}
-          </Typography>
+          <Typography variant="h4">{product.description}</Typography>
         </Box>
         <Typography variant="h3" gutterBottom>
           {product.price.toLocaleString("pt-BR", {
