@@ -13,6 +13,7 @@ import ButtonShop from "./ButtonShop";
 const BoxWrapper = styled(CardWrapper)`
   width: 258px;
   height: 448px;
+  margin: 0 32px 32px 0;
 `;
 
 const CardImageContent = styled(Box)`
