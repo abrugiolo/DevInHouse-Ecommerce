@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 import {
   Typography,
   Box,
@@ -6,8 +7,8 @@ import {
   CardContent,
 } from "@material-ui/core";
 import styled from "styled-components";
-import ShoppingButton from "./ShoppingButton";
 import { installmentsPayment } from "../utils/constsUtils";
+import ButtonShop from "./ButtonShop";
 
 const BoxWrapper = styled(CardWrapper)`
   width: 258px;
@@ -29,6 +30,8 @@ const CardContentStyled = styled(CardContent)`
 
 function Card({ product }) {
   const history = useHistory();
+
+  const [clicked, setClicked] = useState(false)
 
   return (
     <BoxWrapper key={product.id}>
@@ -63,7 +66,7 @@ function Card({ product }) {
           })}
         </Typography>
         <Box mb={2}></Box>
-        <ShoppingButton />
+        <ButtonShop clicked={clicked} setClicked={setClicked} />
       </CardContentStyled>
     </BoxWrapper>
   );
