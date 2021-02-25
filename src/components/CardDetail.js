@@ -27,7 +27,7 @@ const CardContentStyled = styled(CardContent)`
   flex-direction: column;
 `;
 
-function Card({ product }) {
+function CardDetail({ product }) {
   const history = useHistory();
 
   return (
@@ -42,7 +42,7 @@ function Card({ product }) {
       <CardContentStyled>
         <Box mb={2}>
           <Typography variant="h4" onClick={() => history.push("/detalhes")}>
-            {product.name}
+            {product.description}
           </Typography>
         </Box>
         <Typography variant="h3" gutterBottom>
@@ -69,4 +69,4 @@ function Card({ product }) {
   );
 }
 
-export default Card;
+export default CardDetail;
