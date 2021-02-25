@@ -10,40 +10,38 @@ import ShoppingButton from "./ShoppingButton";
 import { installmentsPayment } from "../utils/constsUtils";
 
 const BoxWrapper = styled(CardWrapper)`
-  width: 258px;
-  height: 448px;
+  width: 1128px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  margin-top: 64px;
 `;
 
 const CardImageContent = styled(Box)`
-  text-align: center;
+  text-align: left;
 `;
 const CardImg = styled.img`
   width: 226px;
   height: 226px;
-  padding-top: 16px;
+  padding: 32px;
+  //padding-top: 16px;
 `;
 const CardContentStyled = styled(CardContent)`
   display: flex;
   flex-direction: column;
 `;
 
-function Card({ product }) {
+function CardDetail({ product }) {
   const history = useHistory();
 
   return (
     <BoxWrapper key={product.id}>
       <CardImageContent>
-        <CardImg
-          src={product.image}
-          alt="imagem"
-          onClick={() => history.push("/detalhes")}
-        />
+        <CardImg src={product.image} alt="imagem" />
       </CardImageContent>
       <CardContentStyled>
         <Box mb={2}>
-          <Typography variant="h4" onClick={() => history.push("/detalhes")}>
-            {product.name}
-          </Typography>
+          <Typography variant="h4">{product.description}</Typography>
         </Box>
         <Typography variant="h3" gutterBottom>
           {product.price.toLocaleString("pt-BR", {
@@ -69,4 +67,4 @@ function Card({ product }) {
   );
 }
 
-export default Card;
+export default CardDetail;
