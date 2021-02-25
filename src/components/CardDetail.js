@@ -10,17 +10,21 @@ import ShoppingButton from "./ShoppingButton";
 import { installmentsPayment } from "../utils/constsUtils";
 
 const BoxWrapper = styled(CardWrapper)`
-  width: 258px;
-  height: 448px;
+  width: 1128px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  margin-top: 64px;
 `;
 
 const CardImageContent = styled(Box)`
-  text-align: center;
+  text-align: left;
 `;
 const CardImg = styled.img`
   width: 226px;
   height: 226px;
-  padding-top: 16px;
+  padding: 32px;
+  //padding-top: 16px;
 `;
 const CardContentStyled = styled(CardContent)`
   display: flex;
