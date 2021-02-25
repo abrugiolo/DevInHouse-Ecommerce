@@ -9,18 +9,33 @@ align-items: center;
 height: 44px;
 width: 226px;
 justify-content: space-between;
+
+`
+const BoxIconStyled = styled(Box)`
+height: 44px;
+width: 44px;
+background: #8000FF;
+border-radius: 4px;
+padding: 10px;
+`
+const DeleteIconStyled = styled(DeleteIcon)`
+color: white;
+`
+const AddIconStyled = styled(AddIcon)`
+color: white;
 `
 
 function ButtonAddRemove({setClicked}) {
   return (
     <BoxStyled>
-      <IconButton aria-label="delete" onClick={() => setClicked(false)}>
-        <DeleteIcon />
-      </IconButton>
-      <Typography>1</Typography>
-      <IconButton aria-label="add">
-        <AddIcon />
-      </IconButton>
+      
+      <BoxIconStyled aria-label="delete" onClick={() => setClicked(false)}  >
+        <DeleteIconStyled />
+      </BoxIconStyled>
+      <Typography variant="body3">1</Typography>
+      <BoxIconStyled aria-label="add">
+        <AddIconStyled />
+      </BoxIconStyled>
     </BoxStyled>
   );
 }

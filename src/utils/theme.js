@@ -69,5 +69,12 @@ export default createMuiTheme({
       lineHeight: "24px",
       color: "#9E9E9E",
     },
+    body3: {
+      fontSize: "24px",
+      fontStyle: "normal",
+      fontWeight: "normal",
+      lineHeight: "24px",
+      color: "000000",
+    },
   },
 });
