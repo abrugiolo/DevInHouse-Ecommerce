@@ -39,11 +39,18 @@ const cartReducer = (state = initialState, action) => {
         productsListInCart: filteredProducts,
       };
 
-    /*case CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART:
+    case CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART:
+      const copyProductListInCart2 = [...state.productsListInCart];
+      const productIndex = copyProductListInCart2.findIndex(
+        (product) => product.id === action.payload.productId
+      );
+
+      copyProductListInCart2[productIndex].quantity += 1;
+
       return {
         ...state,
-        productsListInCart: action.payload.list,
-      };*/
+        productsListInCart: copyProductListInCart2,
+      };
 
     default:
       return state;

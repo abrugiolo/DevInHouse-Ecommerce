@@ -5,10 +5,14 @@ import {
 } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import { Typography, Box } from "@material-ui/core";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { useState } from "react";
-import { removeProductsListInCart } from "../redux/actions";
+import {
+  removeProductsListInCart,
+  changeQuantityOfProductsListInCart,
+} from "../redux/actions";
+import { getProductQuantity } from "../redux/selectors";
 
 const BoxStyled = styled(Box)`
   display: flex;
@@ -19,7 +23,8 @@ const BoxStyled = styled(Box)`
 `;
 
 function ButtonAddRemove({ setClicked, product }) {
-  const [number, setNumber] = useState(1);
+  const quantity = useSelector(getProductQuantity(product.id));
+
   const dispatch = useDispatch();
 
   const buttonDeleteClicked = () => {
@@ -27,21 +32,25 @@ function ButtonAddRemove({ setClicked, product }) {
     dispatch(removeProductsListInCart(product?.id));
   };
 
+  const buttonAddClicked = () => {
+    dispatch(changeQuantityOfProductsListInCart(product?.id));
+  };
+
   return (
     <BoxStyled>
-      {number === 1 ? (
+      {quantity === 1 ? (
         <IconButton aria-label="delete" onClick={buttonDeleteClicked}>
           <DeleteIcon />
         </IconButton>
       ) : (
-        <IconButton aria-label="delete" onClick={() => setNumber(number - 1)}>
+        <IconButton aria-label="delete">
           <RemoveIcon />
         </IconButton>
       )}
 
-      <Typography variant="body3">{number}</Typography>
+      <Typography variant="body3">{quantity}</Typography>
 
-      <IconButton onClick={() => setNumber(number + 1)} aria-label="add">
+      <IconButton onClick={buttonAddClicked} aria-label="add">
         <AddIcon />
       </IconButton>
     </BoxStyled>
