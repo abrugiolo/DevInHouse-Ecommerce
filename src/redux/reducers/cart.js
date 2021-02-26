@@ -1,16 +1,41 @@
-import { SET_PRODUCTS_LIST } from "../types";
+import {
+  SET_PRODUCTS_LIST_IN_CART,
+  ADD_PRODUCTS_LIST_IN_CART,
+  REMOVE_PRODUCTS_LIST_IN_CART,
+  CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART,
+} from "../types";
 
 const initialState = {
-  productsList: [],
+  productsListInCart: [],
 };
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PRODUCTS_LIST:
+    case SET_PRODUCTS_LIST_IN_CART:
       return {
         ...state,
-        productsList: action.payload.list,
+        productsListInCart: action.payload.list,
       };
+
+    case ADD_PRODUCTS_LIST_IN_CART:
+      const copyProductListInCart = [...state.productsListInCart]
+      copyProductListInCart.push(action.payload.product)
+      return {
+        ...state,
+        productsListInCart: copyProductListInCart,
+      };
+
+    /*case REMOVE_PRODUCTS_LIST_IN_CART:
+      return {
+        ...state,
+        productsListInCart: action.payload.list,
+      };
+
+    case CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART:
+      return {
+        ...state,
+        productsListInCart: action.payload.list,
+      };*/
 
     default:
       return state;

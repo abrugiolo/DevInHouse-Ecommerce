@@ -67,7 +67,7 @@ function Card({ product }) {
           })}
         </Typography>
         <Box mb={2}></Box>
-        <ButtonShop clicked={clicked} setClicked={setClicked} />
+        <ButtonShop clicked={clicked} setClicked={setClicked} product={product}/>
       </CardContentStyled>
     </BoxWrapper>
   );

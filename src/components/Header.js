@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { InputSearch, CartButton } from "./";
 import logo from "../assets/Shopee.png";
-import { getProductsList } from "../redux/selectors";
+import { getProductsListInCart } from "../redux/selectors";
 
 const ToolbarStyled = styled(Toolbar)`
   padding: 12px 64px;
@@ -24,7 +24,7 @@ const Logo = styled.img`
 
 function Header() {
   const history = useHistory();
-  const productList = useSelector(getProductsList);
+  const productList = useSelector(getProductsListInCart);
 
   return (
     <AppBar color="inherit">

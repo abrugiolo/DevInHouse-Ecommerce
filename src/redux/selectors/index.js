@@ -1,3 +1,3 @@
 export const getInputSearch = (store) => store.searchReducer.inputSearch;
-export const getProductsList = (store) => store.cartReducer.productsList;
+export const getProductsListInCart = (store) => store.cartReducer.productsListInCart;
 export const getProductDetail = (store) => store.detailReducer.productDetail;
