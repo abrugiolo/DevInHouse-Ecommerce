@@ -18,20 +18,20 @@ const cartReducer = (state = initialState, action) => {
       };
 
     case ADD_PRODUCTS_LIST_IN_CART:
-      const copyProductListInCart = [...state.productsListInCart]
-      copyProductListInCart.push(action.payload.product)
+      const copyProductListInCart = [...state.productsListInCart];
+      copyProductListInCart.push(action.payload.product);
       return {
         ...state,
         productsListInCart: copyProductListInCart,
       };
 
-    /*case REMOVE_PRODUCTS_LIST_IN_CART:
+    case REMOVE_PRODUCTS_LIST_IN_CART:
       return {
         ...state,
         productsListInCart: action.payload.list,
       };
 
-    case CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART:
+    /*case CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART:
       return {
         ...state,
         productsListInCart: action.payload.list,

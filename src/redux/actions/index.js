@@ -32,3 +32,9 @@ export const addProductsListInCart = (product) => {
     payload: { product: product },
   };
 };
+export const removeProductsListInCart = (product) => {
+  return {
+    type: REMOVE_PRODUCTS_LIST_IN_CART,
+    payload: { product: product },
+  };
+};

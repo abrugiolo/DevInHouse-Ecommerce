@@ -5,8 +5,10 @@ import {
 } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import { Typography, Box } from "@material-ui/core";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { useState } from "react";
+import { removeProductsListInCart } from "../redux/actions";
 
 const BoxStyled = styled(Box)`
   display: flex;
@@ -16,8 +18,15 @@ const BoxStyled = styled(Box)`
   justify-content: space-between;
 `;
 
-function ButtonAddRemove({ setClicked }) {
+function ButtonAddRemove({ setClicked, product }) {
   const [number, setNumber] = useState(1);
+  const dispatch = useDispatch();
+
+  const buttonDeleteClicked = () => {
+    setClicked(true);
+    dispatch(removeProductsListInCart(product));
+  };
+
   return (
     <BoxStyled>
       {number === 1 ? (
