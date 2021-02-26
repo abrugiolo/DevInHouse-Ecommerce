@@ -19,16 +19,24 @@ const cartReducer = (state = initialState, action) => {
 
     case ADD_PRODUCTS_LIST_IN_CART:
       const copyProductListInCart = [...state.productsListInCart];
-      copyProductListInCart.push(action.payload.product);
+      const newProduct = {
+        ...action.payload.product,
+        quantity: 1,
+      };
+      copyProductListInCart.push(newProduct);
       return {
         ...state,
         productsListInCart: copyProductListInCart,
       };
 
     case REMOVE_PRODUCTS_LIST_IN_CART:
+      const filteredProducts = state.productsListInCart.filter(
+        (product) => product.id !== action.payload.productId
+      );
+
       return {
         ...state,
-        productsListInCart: action.payload.list,
+        productsListInCart: filteredProducts,
       };
 
     /*case CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART:

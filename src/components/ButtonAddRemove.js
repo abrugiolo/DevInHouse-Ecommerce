@@ -23,14 +23,14 @@ function ButtonAddRemove({ setClicked, product }) {
   const dispatch = useDispatch();
 
   const buttonDeleteClicked = () => {
-    setClicked(true);
-    dispatch(removeProductsListInCart(product));
+    setClicked(false);
+    dispatch(removeProductsListInCart(product?.id));
   };
 
   return (
     <BoxStyled>
       {number === 1 ? (
-        <IconButton aria-label="delete" onClick={() => setClicked(false)}>
+        <IconButton aria-label="delete" onClick={buttonDeleteClicked}>
           <DeleteIcon />
         </IconButton>
       ) : (
