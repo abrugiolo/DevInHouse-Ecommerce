@@ -28,6 +28,9 @@ export default createMuiTheme({
       disabled: "rgba(0, 0, 0, 0.38)",
       hint: "rgba(0, 0, 0, 0.38)",
     },
+    action: {
+      main: "#fff",
+    },
   },
 
   typography: {
@@ -68,6 +71,25 @@ export default createMuiTheme({
       fontWeight: "normal",
       lineHeight: "24px",
       color: "#9E9E9E",
+    },
+    body3: {
+      fontSize: "24px",
+      fontStyle: "normal",
+      fontWeight: "normal",
+      lineHeight: "24px",
+      color: "000000",
+    },
+  },
+  overrides: {
+    MuiIconButton: {
+      root: {
+        color: "#fff",
+        height: "44px",
+        width: "44px",
+        background: "#8000ff",
+        borderRadius: "4px",
+        padding: "10px",
+      },
     },
   },
 });

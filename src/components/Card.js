@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 import {
   Typography,
   Box,
@@ -6,12 +7,13 @@ import {
   CardContent,
 } from "@material-ui/core";
 import styled from "styled-components";
-import ShoppingButton from "./ShoppingButton";
 import { installmentsPayment } from "../utils/constsUtils";
+import ButtonShop from "./ButtonShop";
 
 const BoxWrapper = styled(CardWrapper)`
   width: 258px;
   height: 448px;
+  margin: 0 32px 32px 0;
 `;
 
 const CardImageContent = styled(Box)`
@@ -30,6 +32,8 @@ const CardContentStyled = styled(CardContent)`
 function Card({ product }) {
   const history = useHistory();
 
+  const [clicked, setClicked] = useState(false);
+
   return (
     <BoxWrapper key={product.id}>
       <CardImageContent>
@@ -41,7 +45,7 @@ function Card({ product }) {
       </CardImageContent>
       <CardContentStyled>
         <Box mb={2}>
-          <Typography variant="h4" onClick={() => history.push("/detalhes")}>
+          <Typography noWrap variant="h4" onClick={() => history.push("/detalhes")}>
             {product.name}
           </Typography>
         </Box>
@@ -63,7 +67,7 @@ function Card({ product }) {
           })}
         </Typography>
         <Box mb={2}></Box>
-        <ShoppingButton />
+        <ButtonShop clicked={clicked} setClicked={setClicked} product={product}/>
       </CardContentStyled>
     </BoxWrapper>
   );

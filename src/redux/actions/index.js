@@ -1,7 +1,8 @@
 import {
   SET_INPUT_SEARCH,
   SET_PRODUCT_DETAIL,
-  SET_PRODUCTS_LIST,
+  SET_PRODUCTS_LIST_IN_CART,
+  ADD_PRODUCTS_LIST_IN_CART,
 } from "../types";
 
 export const setInputSearch = (input) => {
@@ -20,7 +21,14 @@ export const setProductDetail = (product) => {
 
 export const setProductsList = (list) => {
   return {
-    type: SET_PRODUCTS_LIST,
+    type: SET_PRODUCTS_LIST_IN_CART,
     payload: { list: list },
+  };
+};
+
+export const addProductsListInCart = (product) => {
+  return {
+    type: ADD_PRODUCTS_LIST_IN_CART,
+    payload: { product: product },
   };
 };
