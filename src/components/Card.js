@@ -40,6 +40,7 @@ const CardImg = styled.img`
   width: 226px;
   height: 226px;
   padding-top: 16px;
+  cursor: pointer; 
   ${(props) =>
     props.detail &&
     css`
@@ -58,6 +59,7 @@ const TypographyStyled = styled(Typography)`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  cursor: pointer; 
 `;
 
 function Card({ product, detail }) {
