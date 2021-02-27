@@ -11,9 +11,15 @@ const InputWrapper = styled.form`
   background-color: #f4f4f4;
   border-radius: 54px;
   padding: 10px 32px;
+  height: 44px;
+  width: 424px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   .iconButton {
     padding: 0;
+    background-color: transparent;
   }
 `;
 

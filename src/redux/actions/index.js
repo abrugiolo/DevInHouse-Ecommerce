@@ -1,6 +1,7 @@
 import {
   SET_INPUT_SEARCH,
   SET_PRODUCT_DETAIL,
+  ADD_PRODUCTS_IN_DETAIL,
   SET_PRODUCTS_LIST_IN_CART,
   ADD_PRODUCTS_LIST_IN_CART,
   REMOVE_PRODUCTS_LIST_IN_CART,
@@ -17,6 +18,13 @@ export const setInputSearch = (input) => {
 export const setProductDetail = (product) => {
   return {
     type: SET_PRODUCT_DETAIL,
+    payload: { product: product },
+  };
+};
+
+export const addProductDetail = (product) => {
+  return {
+    type: ADD_PRODUCTS_IN_DETAIL,
     payload: { product: product },
   };
 };

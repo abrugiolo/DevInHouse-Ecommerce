@@ -4,6 +4,7 @@ import { ShoppingCart } from "@material-ui/icons";
 import styled from "styled-components";
 
 const IconButtonStyled = styled(IconButton)`
+  border-radius: 50%;
   background-color: #ebd7ff;
 `;
 
