@@ -40,7 +40,7 @@ const CardImg = styled.img`
   width: 226px;
   height: 226px;
   padding-top: 16px;
-  cursor: pointer; 
+  cursor: pointer;
   ${(props) =>
     props.detail &&
     css`
@@ -59,7 +59,7 @@ const TypographyStyled = styled(Typography)`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  cursor: pointer; 
+  cursor: pointer;
 `;
 
 function Card({ product, detail }) {
@@ -89,7 +89,7 @@ function Card({ product, detail }) {
             <TypographyStyled
               //noWrap
               variant="h4"
-              onClick={() => history.push("/detalhes")}
+              onClick={clickedToDetails}
             >
               {product.name}
             </TypographyStyled>
