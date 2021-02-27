@@ -1,6 +1,6 @@
 import { Box, Typography } from "@material-ui/core";
 //import { useEffect, useState } from "react";
-import { CardDetail, PageWrapper } from "../../components";
+import { Card, PageWrapper } from "../../components";
 //import { fetchProducts } from "../../utils/api";
 
 export default function DetalhesDoProduto() {
@@ -32,7 +32,7 @@ export default function DetalhesDoProduto() {
       <Box>
         <Typography variant="h2">{product.name}</Typography>
       </Box>
-      <CardDetail product={product} />
+      <Card product={product} detail />
     </PageWrapper>
   );
 }
