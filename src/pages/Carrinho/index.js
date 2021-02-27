@@ -1,6 +1,5 @@
 import { ButtonShop, PageWrapper } from "../../components";
-import { getProductsListInCart } from "../../redux/selectors";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Button,
   List,
@@ -9,8 +8,12 @@ import {
   Box,
   Typography,
 } from "@material-ui/core";
-
 import styled from "styled-components";
+import {
+  getProductsListInCart,
+  getTotalProductsListInCart,
+} from "../../redux/selectors";
+import { calculateTotalProductsListInCart } from "../../redux/actions";
 
 const ItemName = styled(ListItemText)`
   width: 40%;
@@ -45,10 +48,17 @@ const BoxStyled = styled(Box)`
 `;
 
 export default function Carrinho() {
+  const dispatch = useDispatch();
   const productListInCart = useSelector(getProductsListInCart);
   console.log(productListInCart);
-
-  const totalQuantity = 0;
+  const totalCart = useSelector(getTotalProductsListInCart);
+  dispatch(calculateTotalProductsListInCart());
+  console.log(totalCart);
+  // const totalQuantity = productListInCart.reduce(
+  //   (prevValue, eachProduct) =>
+  //     prevValue + eachProduct.quantity * eachProduct.price,
+  //   0
+  // );
 
   return (
     <PageWrapper>
@@ -85,7 +95,14 @@ export default function Carrinho() {
         <ListItem>
           <ItemName primary="" />
           <Item primary="" />
-          <Item primary={totalQuantity} />
+          <Item
+            primary={totalCart?.toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              style: "currency",
+              currency: "BRL",
+            })}
+          />
           <Item>
             <ButtonStyled color="primary" variant="contained">
               Finalizar Compra
