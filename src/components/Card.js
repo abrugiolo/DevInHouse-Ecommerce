@@ -1,5 +1,4 @@
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
 import {
   Typography,
   Box,
@@ -32,8 +31,6 @@ const CardContentStyled = styled(CardContent)`
 function Card({ product }) {
   const history = useHistory();
 
-  const [clicked, setClicked] = useState(false);
-
   return (
     <BoxWrapper key={product.id}>
       <CardImageContent>
@@ -45,7 +42,11 @@ function Card({ product }) {
       </CardImageContent>
       <CardContentStyled>
         <Box mb={2}>
-          <Typography noWrap variant="h4" onClick={() => history.push("/detalhes")}>
+          <Typography
+            noWrap
+            variant="h4"
+            onClick={() => history.push("/detalhes")}
+          >
             {product.name}
           </Typography>
         </Box>
@@ -67,7 +68,7 @@ function Card({ product }) {
           })}
         </Typography>
         <Box mb={2}></Box>
-        <ButtonShop clicked={clicked} setClicked={setClicked} product={product}/>
+        <ButtonShop product={product} />
       </CardContentStyled>
     </BoxWrapper>
   );

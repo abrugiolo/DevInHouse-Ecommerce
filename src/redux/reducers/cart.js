@@ -44,8 +44,11 @@ const cartReducer = (state = initialState, action) => {
       const productIndex = copyProductListInCart2.findIndex(
         (product) => product.id === action.payload.productId
       );
-
-      copyProductListInCart2[productIndex].quantity += 1;
+      if (action.payload.operation === "add") {
+        copyProductListInCart2[productIndex].quantity += 1;
+      } else {
+        copyProductListInCart2[productIndex].quantity -= 1;
+      }
 
       return {
         ...state,

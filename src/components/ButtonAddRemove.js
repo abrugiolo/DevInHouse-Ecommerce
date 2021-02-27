@@ -7,7 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import { Typography, Box } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { useState } from "react";
 import {
   removeProductsListInCart,
   changeQuantityOfProductsListInCart,
@@ -22,18 +21,21 @@ const BoxStyled = styled(Box)`
   justify-content: space-between;
 `;
 
-function ButtonAddRemove({ setClicked, product }) {
+function ButtonAddRemove({ product }) {
   const quantity = useSelector(getProductQuantity(product.id));
 
   const dispatch = useDispatch();
 
   const buttonDeleteClicked = () => {
-    setClicked(false);
     dispatch(removeProductsListInCart(product?.id));
   };
 
   const buttonAddClicked = () => {
-    dispatch(changeQuantityOfProductsListInCart(product?.id));
+    dispatch(changeQuantityOfProductsListInCart(product?.id, "add"));
+  };
+
+  const buttonRemoveClicked = () => {
+    dispatch(changeQuantityOfProductsListInCart(product?.id, "remove"));
   };
 
   return (
@@ -43,7 +45,7 @@ function ButtonAddRemove({ setClicked, product }) {
           <DeleteIcon />
         </IconButton>
       ) : (
-        <IconButton aria-label="delete">
+        <IconButton aria-label="remove" onClick={buttonRemoveClicked}>
           <RemoveIcon />
         </IconButton>
       )}
