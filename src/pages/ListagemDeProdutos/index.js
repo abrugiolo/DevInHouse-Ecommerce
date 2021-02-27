@@ -5,9 +5,9 @@ import { fetchProducts } from "../../utils/api";
 import styled from "styled-components";
 
 const BoxStyled = styled(Box)`
-display: flex;
-flex-wrap:wrap;
-`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export default function ListagemDeProdutos() {
   const [productList, setProductList] = useState([]);
@@ -22,14 +22,13 @@ export default function ListagemDeProdutos() {
 
   return (
     <PageWrapper>
-      <div>ListagemDeProdutos</div>
       <Box>
-        <Typography variant="h1">Bem Vindo!</Typography>
+        <Typography variant="h2">Bem Vindo!</Typography>
       </Box>
       <BoxStyled>
-      {productList?.map((product) => (
-        <Card product={product} />
-      ))}
+        {productList?.map((product) => (
+          <Card product={product} />
+        ))}
       </BoxStyled>
     </PageWrapper>
   );

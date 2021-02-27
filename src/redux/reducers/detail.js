@@ -1,4 +1,4 @@
-import { SET_PRODUCT_DETAIL } from "../types";
+import { SET_PRODUCT_DETAIL, ADD_PRODUCTS_IN_DETAIL } from "../types";
 
 const initialState = {
   productDetail: undefined,
@@ -12,6 +12,14 @@ const detailReducer = (state = initialState, action) => {
         productDetail: action.payload.product,
       };
 
+    case ADD_PRODUCTS_IN_DETAIL:
+      const newProductDetail = {
+        ...action.payload.product,
+      };
+      return {
+        ...state,
+        productDetail: newProductDetail,
+      };
     default:
       return state;
   }

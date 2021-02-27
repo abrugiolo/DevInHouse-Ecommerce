@@ -6,3 +6,7 @@ export const getProductQuantity = (productId) => (store) =>
   store.cartReducer.productsListInCart.find(
     (product) => product.id === productId
   )?.quantity;
+export const getProductName = (productId) => (store) =>
+  store.cartReducer.productsListInCart.find(
+    (product) => product.id === productId
+  );

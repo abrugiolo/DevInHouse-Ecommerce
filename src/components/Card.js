@@ -5,11 +5,12 @@ import {
   Card as CardWrapper,
   CardContent,
 } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { addProductDetail } from "../redux/actions";
 import styled, { css } from "styled-components";
 import { installmentsPayment } from "../utils/constsUtils";
 import ButtonShop from "./ButtonShop";
 
-//mudar
 const BoxWrapper = styled(CardWrapper)`
   width: 258px;
   height: 448px;
@@ -26,7 +27,6 @@ const BoxWrapper = styled(CardWrapper)`
     `}
 `;
 
-//mudar
 const CardImageContent = styled(Box)`
   text-align: center;
   ${(props) =>
@@ -36,7 +36,6 @@ const CardImageContent = styled(Box)`
     `}
 `;
 
-// mudar
 const CardImg = styled.img`
   width: 226px;
   height: 226px;
@@ -56,6 +55,12 @@ const CardContentStyled = styled(CardContent)`
 
 function Card({ product, detail }) {
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const clickedToDetails = (product) => {
+    dispatch(addProductDetail(product));
+    history.push("/detalhes");
+  };
 
   return (
     <BoxWrapper key={product.id} detail={detail}>
@@ -64,7 +69,7 @@ function Card({ product, detail }) {
           detail={detail}
           src={product.image}
           alt="imagem"
-          onClick={() => !detail && history.push("/detalhes")}
+          onClick={clickedToDetails}
         />
       </CardImageContent>
       <CardContentStyled>
