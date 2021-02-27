@@ -53,11 +53,18 @@ const CardContentStyled = styled(CardContent)`
   flex-direction: column;
 `;
 
+const TypographyStyled = styled(Typography)`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+`;
+
 function Card({ product, detail }) {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const clickedToDetails = (product) => {
+  const clickedToDetails = () => {
     dispatch(addProductDetail(product));
     history.push("/detalhes");
   };
@@ -77,13 +84,13 @@ function Card({ product, detail }) {
           {detail ? (
             <Typography variant="h4">{product.description}</Typography>
           ) : (
-            <Typography
-              noWrap
+            <TypographyStyled
+              //noWrap
               variant="h4"
               onClick={() => history.push("/detalhes")}
             >
               {product.name}
-            </Typography>
+            </TypographyStyled>
           )}
         </Box>
         <Typography variant="h3" gutterBottom>
