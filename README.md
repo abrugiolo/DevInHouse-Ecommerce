@@ -5,6 +5,7 @@
 :dash: <a href="https://shopee-luluzinhas.surge.sh/" target="_blank">Deploy da Aplicação</a>
 
 <br>
+
 ## Ferramentas/tecnologia utilizada
 
 - HTML
@@ -21,6 +22,9 @@
 
 ## Escopo do projeto
 Projeto de uma MVP  de compras realizado como tarefa de conclusão do módulo I  do curso DevInHouse SENAI/SC em parceria com ACATE/SC e SOFTPLAN.
+
+<br>
+
 Tarefa: Elaborar o front-end para um e-commerce. O *MVP* contará com 4 funcionalidades básicas :
 - Listagem de produtos
 - Resultados da busca
