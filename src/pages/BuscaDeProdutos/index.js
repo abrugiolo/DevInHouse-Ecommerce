@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
-import { PageWrapper } from "../../components";
-
 import { getInputSearch } from "../../redux/selectors";
+import { PageWrapper } from "../../components";
 
 export default function BuscaDeProdutos() {
   const inputSearch = useSelector(getInputSearch);

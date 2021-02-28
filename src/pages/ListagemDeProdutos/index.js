@@ -1,8 +1,10 @@
 import { Box, Typography, CircularProgress } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { Card, PageWrapper } from "../../components";
-import { fetchProducts } from "../../utils/api";
+import { fetchProducts, queryProducts } from "../../utils/api";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { getInputSearch, getClickSearch } from "../../redux/selectors";
 
 const BoxStyled = styled(Box)`
   display: flex;
@@ -26,14 +28,19 @@ const LoadingWrapper = styled.div`
 export default function ListagemDeProdutos() {
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const inputSearch = useSelector(getInputSearch);
+  const clicked = useSelector(getClickSearch);
   useEffect(() => {
     //fetchProducts().then((response) => setProductList(response));
     getProducts();
   }, []);
 
   const getProducts = async () => {
-    const response = await fetchProducts();
+    console.log(inputSearch);
+
+    const response = await (!inputSearch
+      ? fetchProducts()
+      : queryProducts(inputSearch));
     setProductList(response);
     setLoading(false);
   };
@@ -41,7 +48,9 @@ export default function ListagemDeProdutos() {
   return (
     <PageWrapper>
       <BoxTitle>
-        <Typography variant="h2">Bem Vindo!</Typography>
+        <Typography variant="h2">
+          {!inputSearch ? "Bem Vindo!" : `Resultados para: ${inputSearch}`}
+        </Typography>
       </BoxTitle>
       {loading ? (
         <LoadingWrapper>

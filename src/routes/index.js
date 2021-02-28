@@ -9,7 +9,7 @@ import { Header } from "../components";
 const routes = [
   {
     path: "/busca",
-    component: BuscaDeProdutos,
+    component: ListagemDeProdutos,
   },
   {
     path: "/detalhes",

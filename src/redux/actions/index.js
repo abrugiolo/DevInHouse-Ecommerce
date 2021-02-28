@@ -10,10 +10,13 @@ import {
   RESET_CART,
 } from "../types";
 
-export const setInputSearch = (input) => {
+export const setInputSearch = (input, click) => {
   return {
     type: SET_INPUT_SEARCH,
-    payload: { input: input },
+    payload: {
+      input: input,
+      click: click,
+    },
   };
 };
 

@@ -86,22 +86,26 @@ export default function Carrinho() {
         </ListItem>
       </ListStyled2>
       <ListStyled>
-        {productListInCart?.map((product) => {
-          const total = product.price * product.quantity;
-          return (
-            <ListItem>
-              <ItemName primary={product.name} />
+        {productListInCart.length > 0 ? (
+          productListInCart?.map((product) => {
+            const total = product.price * product.quantity;
+            return (
+              <ListItem>
+                <ItemName primary={product.name} />
 
-              <Item primary={product.price} />
+                <Item primary={product.price} />
 
-              <Item>
-                <ButtonShop product={product} />
-              </Item>
+                <Item>
+                  <ButtonShop product={product} />
+                </Item>
 
-              <Item primary={total} />
-            </ListItem>
-          );
-        })}
+                <Item primary={total} />
+              </ListItem>
+            );
+          })
+        ) : (
+          <p>Sem produtos no carrinho...</p>
+        )}
       </ListStyled>
       <ListStyled2>
         <ListItem>
