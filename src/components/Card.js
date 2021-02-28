@@ -5,11 +5,14 @@ import {
   Card as CardWrapper,
   CardContent,
 } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { addProductDetail } from "../redux/actions";
+import { useDispatch } from "react-redux";
 import styled, { css } from "styled-components";
+
+import { addProductDetail } from "../redux/actions";
 import { installmentsPayment } from "../utils/constsUtils";
+
 import ButtonShop from "./ButtonShop";
+import Price from "./Price";
 
 const BoxWrapper = styled(CardWrapper)`
   width: 258px;
@@ -24,6 +27,9 @@ const BoxWrapper = styled(CardWrapper)`
       align-items: center;
       margin: 0;
       margin-top: 64px;
+      @media screen and (max-width: 800px) {
+        width: 500px;
+      }
     `}
 `;
 
@@ -72,11 +78,11 @@ function Card({ product, detail }) {
   };
 
   return (
-    <BoxWrapper key={product.id} detail={detail}>
+    <BoxWrapper key={product?.id} detail={detail}>
       <CardImageContent detail={detail}>
         <CardImg
           detail={detail}
-          src={product.image}
+          src={product?.image}
           alt="imagem"
           onClick={clickedToDetails}
         />
@@ -84,28 +90,21 @@ function Card({ product, detail }) {
       <CardContentStyled>
         <Box mb={2}>
           {detail ? (
-            <Typography variant="h4">{product.description}</Typography>
+            <Typography variant="h5">{product?.description}</Typography>
           ) : (
             <TypographyStyled
               //noWrap
-              variant="h4"
+              variant="h5"
               onClick={clickedToDetails}
             >
-              {product.name}
+              {product?.name}
             </TypographyStyled>
           )}
         </Box>
-        <Typography variant="h3" gutterBottom>
-          {product.price.toLocaleString("pt-BR", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-            //style: "currency",
-            currency: "BRL",
-          })}
-        </Typography>
+        <Price value={product?.price} />
         <Typography variant="body1">
           ou {installmentsPayment}x de{" "}
-          {(product.price / installmentsPayment).toLocaleString("pt-BR", {
+          {(product?.price / installmentsPayment)?.toLocaleString("pt-BR", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
             //style: "currency",

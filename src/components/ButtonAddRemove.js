@@ -50,7 +50,7 @@ function ButtonAddRemove({ product }) {
         </IconButton>
       )}
 
-      <Typography variant="body3">{quantity}</Typography>
+      <Typography variant="h4">{quantity}</Typography>
 
       <IconButton onClick={buttonAddClicked} aria-label="add">
         <AddIcon />
