@@ -9,3 +9,4 @@ export const getProductQuantity = (productId) => (store) =>
   )?.quantity;
 export const getTotalProductsListInCart = (store) =>
   store.cartReducer.totalCalculated;
+export const getLoading = (store) => store.loadingReducer.loading;
