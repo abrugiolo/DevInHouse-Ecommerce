@@ -1,13 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import { InputBase, IconButton } from "@material-ui/core";
 import styled from "styled-components";
 
-import { getInputSearch } from "../redux/selectors";
-import { setInputSearch } from "../redux/actions";
+import { setInputSearch, setLoading } from "../redux/actions";
 
-const InputWrapper = styled.form`
+const InputWrapper = styled.div`
   background-color: #f4f4f4;
   border-radius: 54px;
   padding: 10px 32px;
@@ -23,19 +22,14 @@ const InputWrapper = styled.form`
   }
 `;
 
-function InputSearch() {
+function InputSearch({ search, setSearch }) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const inputSearch = useSelector(getInputSearch);
 
-  const handleIconClick = (e) => {
-    e.preventDefault();
-    if (inputSearch === "" || inputSearch === undefined) {
-      history.push("/");
-      // TODO: colocar uma mensagem de alerta para que o usuário preencha o campo buscar
-    } else {
-      history.push("/busca");
-    }
+  const handleIconClick = () => {
+    history.push("/");
+    dispatch(setInputSearch(search.trim(), true));
+    dispatch(setLoading(true));
   };
 
   return (
@@ -43,8 +37,8 @@ function InputSearch() {
       <InputBase
         className="inputBase"
         placeholder="Buscar..."
-        value={inputSearch || ""}
-        onChange={(e) => dispatch(setInputSearch(e.target.value))}
+        value={search || ""}
+        onChange={(e) => setSearch(e.target.value)}
       />
 
       <IconButton

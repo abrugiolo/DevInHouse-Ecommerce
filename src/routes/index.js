@@ -1,16 +1,11 @@
 import ListagemDeProdutos from "../pages/ListagemDeProdutos";
 import DetalhesDoProduto from "../pages/DetalhesDoProduto";
 import Carrinho from "../pages/Carrinho";
-import BuscaDeProdutos from "../pages/BuscaDeProdutos";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Header } from "../components";
 
 const routes = [
-  {
-    path: "/busca",
-    component: BuscaDeProdutos,
-  },
   {
     path: "/detalhes",
     component: DetalhesDoProduto,

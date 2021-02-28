@@ -8,12 +8,16 @@ import {
   CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART,
   CALCULATE_TOTAL_PRODUCTS_LIST_IN_CART,
   RESET_CART,
+  SET_LOADING,
 } from "../types";
 
-export const setInputSearch = (input) => {
+export const setInputSearch = (input, click) => {
   return {
     type: SET_INPUT_SEARCH,
-    payload: { input: input },
+    payload: {
+      input: input,
+      click: click,
+    },
   };
 };
 
@@ -71,5 +75,12 @@ export const calculateTotalProductsListInCart = (total) => {
   return {
     type: CALCULATE_TOTAL_PRODUCTS_LIST_IN_CART,
     payload: { total: total },
+  };
+};
+
+export const setLoading = (option) => {
+  return {
+    type: SET_LOADING,
+    payload: { option: option },
   };
 };

@@ -2,6 +2,7 @@ import { SET_INPUT_SEARCH } from "../types";
 
 const initialState = {
   inputSearch: undefined,
+  clicked: false,
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -10,6 +11,7 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         inputSearch: action.payload.input,
+        clicked: action.payload.click,
       };
 
     default:
