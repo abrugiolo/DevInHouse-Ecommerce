@@ -5,7 +5,6 @@
 :dash: <a href="https://shopee-luluzinhas.surge.sh/" target="_blank">Deploy da Aplicação</a>
 
 <br>
-
 ## Ferramentas/tecnologia utilizada
 
 - HTML
@@ -21,8 +20,8 @@
 <br>
 
 ## Escopo do projeto
-
-Elaborar o front-end para um e-commerce. O *MVP* contará com 4 funcionalidades básicas :
+Projeto de uma MVP  de compras realizado como tarefa de conclusão do módulo I  do curso DevInHouse SENAI/SC em parceria com ACATE/SC e SOFTPLAN.
+Tarefa: Elaborar o front-end para um e-commerce. O *MVP* contará com 4 funcionalidades básicas :
 - Listagem de produtos
 - Resultados da busca
 - Adicionar ou remover produtos do carrinho
@@ -30,7 +29,7 @@ Elaborar o front-end para um e-commerce. O *MVP* contará com 4 funcionalidades 
 
 <br>
 
-Siguir o [protótipo](https://www.figma.com/file/jdFnxsp7HGLctqi1WMWhIw/Desafio-Front-end-SENAI-(Copy)?node-id=0%3A1) disponibilizado ao máximo.
+Seguir o [protótipo](https://www.figma.com/file/jdFnxsp7HGLctqi1WMWhIw/Desafio-Front-end-SENAI-(Copy)?node-id=0%3A1) disponibilizado ao máximo.
 
 <br>
 
