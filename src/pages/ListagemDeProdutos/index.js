@@ -61,11 +61,11 @@ export default function ListagemDeProdutos() {
             : `Resultados para: ${inputSearch}`}
         </Typography>
       </BoxTitle>
-      {loading ? (
-        <DivWrapper>
+      {loading && <DivWrapper>
           <CircularProgress />
-        </DivWrapper>
-      ) : productList?.length === 0 ? (
+        </DivWrapper>}
+
+      { productList?.length === 0 ? (
         <DivWrapper>Nenhum resultado encontrado para esta busca.</DivWrapper>
       ) : (
         <BoxStyled>

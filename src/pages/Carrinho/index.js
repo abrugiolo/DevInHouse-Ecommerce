@@ -1,5 +1,6 @@
-import { ButtonShop, PageWrapper } from "../../components";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {
   Button,
   List,
@@ -9,6 +10,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import styled from "styled-components";
+
+import { ButtonShop, PageWrapper } from "../../components";
+import { MessageAlert } from "../../components";
+
 import {
   getProductsListInCart,
   getTotalProductsListInCart,
@@ -17,7 +22,6 @@ import {
   calculateTotalProductsListInCart,
   resetCart,
 } from "../../redux/actions";
-import { useHistory } from "react-router-dom";
 
 const ItemName = styled(ListItemText)`
   width: 40%;
@@ -41,7 +45,15 @@ const ListStyled = styled(List)`
   background: #ffffff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.13);
   border-radius: 7px;
+  padding: 20px;
 `;
+
+const CartEmpty = styled.p`
+  display: flex;
+  height: 446px;
+  justify-content: center;
+  align-items: center;
+`
 
 const ListStyled2 = styled(List)`
   width: 1128px;
@@ -51,85 +63,105 @@ const BoxStyled = styled(Box)`
   margin-top: 32px;
 `;
 
+const ListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export default function Carrinho() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [alert, setAlert] = useState(false);
   const productListInCart = useSelector(getProductsListInCart);
-  console.log(productListInCart);
   const totalCart = useSelector(getTotalProductsListInCart);
   dispatch(calculateTotalProductsListInCart());
-  console.log(totalCart);
 
-  const exibirAlerta = () => {
-    window.alert("A compra foi processada com sucesso, Obrigado!");
-    dispatch(resetCart());
-    console.log(productListInCart);
-    history.push("/");
-  };
   // const totalQuantity = productListInCart.reduce(
   //   (prevValue, eachProduct) =>
   //     prevValue + eachProduct.quantity * eachProduct.price,
   //   0
   // );
 
+  const exibirAlerta = () => {
+    setAlert(true);
+    dispatch(resetCart());
+    setTimeout(() => {
+      history.push("/");
+    }, 4500) 
+    
+  };
+
   return (
-    <PageWrapper>
-      <BoxStyled>
-        <Typography variant="h2">Carrinho</Typography>
-      </BoxStyled>
-      <ListStyled2>
-        <ListItem>
-          <ItemName primary="" />
-          <Item primary="Preço UN." />
-          <Item primary="Quantidade" />
-          <Item primary="Subtotal" />
-        </ListItem>
-      </ListStyled2>
-      <ListStyled>
-        {productListInCart.length > 0 ? (
-          productListInCart?.map((product) => {
-            const total = product.price * product.quantity;
-            return (
-              <ListItem>
-                <ItemName primary={product.name} />
+    <>
+      <PageWrapper>
+        <BoxStyled>
+          <Typography variant="h2">Carrinho</Typography>
+        </BoxStyled>
 
-                <Item primary={product.price} />
+        <ListWrapper>
+          <ListStyled2>
+            <ListItem>
+              <ItemName primary="" />
+              <Item primary="Preço UN." />
+              <Item primary="Quantidade" />
+              <Item primary="Subtotal" />
+            </ListItem>
+          </ListStyled2>
+          <ListStyled>
+            {productListInCart.length > 0 ? (
+              productListInCart?.map((product) => {
+                const total = product.price * product.quantity;
+                return (
+                  <ListItem>
+                    <ItemName primary={product.name} />
 
-                <Item>
-                  <ButtonShop product={product} />
-                </Item>
+                    <Item primary={product.price} />
 
-                <Item primary={total} />
-              </ListItem>
-            );
-          })
-        ) : (
-          <p>Sem produtos no carrinho...</p>
-        )}
-      </ListStyled>
-      <ListStyled2>
-        <ListItem>
-          <ItemName primary="" />
-          <Item primary="" />
-          <Item
-            primary={totalCart?.toLocaleString("pt-BR", {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-              style: "currency",
-              currency: "BRL",
-            })}
-          />
-          <Item>
-            <ButtonStyled
-              color="primary"
-              variant="contained"
-              onClick={exibirAlerta}
-            >
-              Finalizar Compra
-            </ButtonStyled>
-          </Item>
-        </ListItem>
-      </ListStyled2>
-    </PageWrapper>
+                    <Item>
+                      <ButtonShop product={product} />
+                    </Item>
+
+                    <Item primary={total} />
+                  </ListItem>
+                );
+              })
+            ) : (
+              <CartEmpty>Sem produtos no carrinho...</CartEmpty>
+            )}
+          </ListStyled>
+          <ListStyled2>
+            <ListItem>
+              <ItemName primary="" />
+              <Item primary="" />
+              <Item
+                primary={totalCart?.toLocaleString("pt-BR", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              />
+              <Item>
+                <ButtonStyled
+                  color="primary"
+                  variant="contained"
+                  onClick={exibirAlerta}
+                >
+                  Finalizar Compra
+                </ButtonStyled>
+              </Item>
+            </ListItem>
+          </ListStyled2>
+        </ListWrapper>
+      </PageWrapper>
+
+      <MessageAlert
+        alert={alert}
+        setAlert={setAlert}
+        message="A compra foi processada com sucesso. Obrigado!"
+      />
+    </>
   );
 }

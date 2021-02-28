@@ -1,18 +1,17 @@
 import { Box, Typography, Button } from "@material-ui/core";
-// import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import styled from "styled-components";
+
 import { Card, PageWrapper } from "../../components";
 import { getProductDetail } from "../../redux/selectors";
-import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { setLoading } from "../../redux/actions"
 
-// const ArrowBackIconStyled = styled(ArrowBackIcon)`
-//   margin-top: 32px;
-// `;
 const ButtonStyled = styled(Button)`
   height: 44px;
   width: 150px;
   margin-top: 32px;
+  text-transform: none;
 `;
 
 const BoxStyled = styled(Box)`
@@ -21,23 +20,22 @@ const BoxStyled = styled(Box)`
 
 export default function DetalhesDoProduto() {
   const history = useHistory();
+  const dispatch = useDispatch();
   const productDetail = useSelector(getProductDetail);
 
   const buttonBackClicked = () => {
     history.goBack();
+    dispatch(setLoading(true));
   };
 
   return (
     <>
       <PageWrapper>
-        {/* <div>DetalhesDeProdutos</div> */}
         <BoxStyled>
           <Typography variant="h2">{productDetail?.name}</Typography>
         </BoxStyled>
         <Card product={productDetail} detail />
-        {/* <ArrowBackIconStyled color="primary" /> */}
         <ButtonStyled
-          color="rgba(235, 215, 255, 1)"
           variant="contained"
           onClick={buttonBackClicked}
         >

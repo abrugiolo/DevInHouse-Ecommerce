@@ -5,10 +5,12 @@ import {
   Card as CardWrapper,
   CardContent,
 } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { addProductDetail } from "../redux/actions";
+import { useDispatch } from "react-redux";
 import styled, { css } from "styled-components";
+
+import { addProductDetail } from "../redux/actions";
 import { installmentsPayment } from "../utils/constsUtils";
+
 import ButtonShop from "./ButtonShop";
 
 const BoxWrapper = styled(CardWrapper)`
