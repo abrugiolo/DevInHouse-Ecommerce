@@ -5,4 +5,5 @@ export { default as CartButton } from "./CartButton";
 export { default as PageWrapper } from "./PageWrapper";
 export { default as ButtonAddRemove } from "./ButtonAddRemove";
 export { default as ButtonShop } from "./ButtonShop";
-export { default as MessageAlert } from "./MessageAlert"
+export { default as MessageAlert } from "./MessageAlert";
+export { default as Price } from "./Price";

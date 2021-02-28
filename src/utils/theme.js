@@ -36,7 +36,7 @@ export default createMuiTheme({
   typography: {
     fontFamily: ["Roboto"],
     h2: {
-      fontSize: "48px",
+      fontSize: "min(48px, 7vw)",
       fontStyle: "normal",
       fontWeight: "500",
       lineHeight: "24px",
@@ -49,8 +49,17 @@ export default createMuiTheme({
       lineHeight: "24px",
       color: "#000000",
     },
+
     h4: {
-      fontSize: "18px",
+      fontSize: "24px",
+      fontStyle: "normal",
+      fontWeight: "normal",
+      lineHeight: "24px",
+      color: "#000000",
+    },
+
+    h5: {
+      fontSize: "min(18px, 4.5vw)",
       fontStyle: "normal",
       fontWeight: "500",
       lineHeight: "24px",
@@ -71,13 +80,6 @@ export default createMuiTheme({
       fontWeight: "normal",
       lineHeight: "24px",
       color: "#9E9E9E",
-    },
-    body3: {
-      fontSize: "24px",
-      fontStyle: "normal",
-      fontWeight: "normal",
-      lineHeight: "24px",
-      color: "000000",
     },
   },
   overrides: {

@@ -14,7 +14,7 @@ const ButtonStyled = styled(Button)`
 function ButtonShop({ product }) {
   const dispatch = useDispatch();
 
-  const quantity = useSelector(getProductQuantity(product.id));
+  const quantity = useSelector(getProductQuantity(product?.id));
 
   const buttonShopClicked = () => {
     dispatch(addProductsListInCart(product));
