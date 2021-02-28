@@ -3,10 +3,13 @@ import {
   ADD_PRODUCTS_LIST_IN_CART,
   REMOVE_PRODUCTS_LIST_IN_CART,
   CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART,
+  CALCULATE_TOTAL_PRODUCTS_LIST_IN_CART,
+  RESET_CART,
 } from "../types";
 
 const initialState = {
   productsListInCart: [],
+  totalCalculated: 0,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -15,6 +18,13 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         productsListInCart: action.payload.list,
+      };
+
+    case RESET_CART:
+      const resetState = [];
+      return {
+        ...state,
+        productsListInCart: resetState,
       };
 
     case ADD_PRODUCTS_LIST_IN_CART:
@@ -55,8 +65,19 @@ const cartReducer = (state = initialState, action) => {
         productsListInCart: copyProductListInCart2,
       };
 
+    case CALCULATE_TOTAL_PRODUCTS_LIST_IN_CART:
+      let total = 0;
+      state.productsListInCart.forEach((product) => {
+        total += product.quantity * product.price;
+      });
+      return {
+        ...state,
+        totalCalculated: total,
+      };
+
     default:
       return state;
   }
 };
+
 export default cartReducer;

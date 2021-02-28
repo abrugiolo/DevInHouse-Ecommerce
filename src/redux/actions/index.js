@@ -6,6 +6,8 @@ import {
   ADD_PRODUCTS_LIST_IN_CART,
   REMOVE_PRODUCTS_LIST_IN_CART,
   CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART,
+  CALCULATE_TOTAL_PRODUCTS_LIST_IN_CART,
+  RESET_CART,
 } from "../types";
 
 export const setInputSearch = (input) => {
@@ -36,6 +38,13 @@ export const setProductsList = (product) => {
   };
 };
 
+export const resetCart = (product) => {
+  return {
+    type: RESET_CART,
+    payload: { product: product },
+  };
+};
+
 export const addProductsListInCart = (product) => {
   return {
     type: ADD_PRODUCTS_LIST_IN_CART,
@@ -56,5 +65,11 @@ export const changeQuantityOfProductsListInCart = (productId, operation) => {
       productId: productId,
       operation: operation,
     },
+  };
+};
+export const calculateTotalProductsListInCart = (total) => {
+  return {
+    type: CALCULATE_TOTAL_PRODUCTS_LIST_IN_CART,
+    payload: { total: total },
   };
 };

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const ButtonStyled = styled(Button)`
   height: 44px;
   width: 226px;
+  text-transform: none;
 `;
 
 function ButtonShop({ product }) {

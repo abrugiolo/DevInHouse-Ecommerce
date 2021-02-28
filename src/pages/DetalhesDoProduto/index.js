@@ -16,8 +16,8 @@ const ButtonStyled = styled(Button)`
 `;
 
 const BoxStyled = styled(Box)`
- margin-top: 32px;
-`
+  margin-top: 32px;
+`;
 
 export default function DetalhesDoProduto() {
   const history = useHistory();
@@ -32,7 +32,7 @@ export default function DetalhesDoProduto() {
       <PageWrapper>
         {/* <div>DetalhesDeProdutos</div> */}
         <BoxStyled>
-          <Typography variant="h2">{productDetail.name}</Typography>
+          <Typography variant="h2">{productDetail?.name}</Typography>
         </BoxStyled>
         <Card product={productDetail} detail />
         {/* <ArrowBackIconStyled color="primary" /> */}
