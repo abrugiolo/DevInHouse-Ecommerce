@@ -7,6 +7,7 @@ import {
   REMOVE_PRODUCTS_LIST_IN_CART,
   CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART,
   CALCULATE_TOTAL_PRODUCTS_LIST_IN_CART,
+  RESET_CART,
 } from "../types";
 
 export const setInputSearch = (input) => {
@@ -33,6 +34,13 @@ export const addProductDetail = (product) => {
 export const setProductsList = (product) => {
   return {
     type: SET_PRODUCTS_LIST_IN_CART,
+    payload: { product: product },
+  };
+};
+
+export const resetCart = (product) => {
+  return {
+    type: RESET_CART,
     payload: { product: product },
   };
 };

@@ -13,7 +13,11 @@ import {
   getProductsListInCart,
   getTotalProductsListInCart,
 } from "../../redux/selectors";
-import { calculateTotalProductsListInCart } from "../../redux/actions";
+import {
+  calculateTotalProductsListInCart,
+  resetCart,
+} from "../../redux/actions";
+import { useHistory } from "react-router-dom";
 
 const ItemName = styled(ListItemText)`
   width: 40%;
@@ -49,11 +53,19 @@ const BoxStyled = styled(Box)`
 
 export default function Carrinho() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const productListInCart = useSelector(getProductsListInCart);
   console.log(productListInCart);
   const totalCart = useSelector(getTotalProductsListInCart);
   dispatch(calculateTotalProductsListInCart());
   console.log(totalCart);
+
+  const exibirAlerta = () => {
+    window.alert("A compra foi processada com sucesso, Obrigado!");
+    dispatch(resetCart());
+    console.log(productListInCart);
+    history.push("/");
+  };
   // const totalQuantity = productListInCart.reduce(
   //   (prevValue, eachProduct) =>
   //     prevValue + eachProduct.quantity * eachProduct.price,
@@ -104,7 +116,11 @@ export default function Carrinho() {
             })}
           />
           <Item>
-            <ButtonStyled color="primary" variant="contained">
+            <ButtonStyled
+              color="primary"
+              variant="contained"
+              onClick={exibirAlerta}
+            >
               Finalizar Compra
             </ButtonStyled>
           </Item>

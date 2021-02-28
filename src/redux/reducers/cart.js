@@ -4,6 +4,7 @@ import {
   REMOVE_PRODUCTS_LIST_IN_CART,
   CHANGE_QUANTITY_OF_PRODUCTS_LIST_IN_CART,
   CALCULATE_TOTAL_PRODUCTS_LIST_IN_CART,
+  RESET_CART,
 } from "../types";
 
 const initialState = {
@@ -17,6 +18,13 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         productsListInCart: action.payload.list,
+      };
+
+    case RESET_CART:
+      const resetState = [];
+      return {
+        ...state,
+        productsListInCart: resetState,
       };
 
     case ADD_PRODUCTS_LIST_IN_CART:
