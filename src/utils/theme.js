@@ -43,7 +43,7 @@ export default createMuiTheme({
       color: "#000000",
     },
     h3: {
-      fontSize: "32px",
+      fontSize: "min(32px, 6vw)",
       fontStyle: "normal",
       fontWeight: "500",
       lineHeight: "24px",
@@ -51,7 +51,7 @@ export default createMuiTheme({
     },
 
     h4: {
-      fontSize: "24px",
+      fontSize: "min(24px, 5vw)",
       fontStyle: "normal",
       fontWeight: "normal",
       lineHeight: "24px",
@@ -59,7 +59,7 @@ export default createMuiTheme({
     },
 
     h5: {
-      fontSize: "min(18px, 4.5vw)",
+      fontSize: "min(18px, 4vw)",
       fontStyle: "normal",
       fontWeight: "500",
       lineHeight: "24px",

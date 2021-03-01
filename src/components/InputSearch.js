@@ -16,6 +16,13 @@ const InputWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  @media screen and (max-width: 850px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 220px;
+  }
+
   .iconButton {
     padding: 0;
     background-color: transparent;

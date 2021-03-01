@@ -19,6 +19,17 @@ const BoxStyled = styled(Box)`
   height: 44px;
   width: 226px;
   justify-content: space-between;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+`;
+
+const IconButtonStyled = styled(IconButton)`
+  @media screen and (max-width: 800px) {
+    width: 33px;
+    height: 33px;
+    margin: 0 5px;
+  }
 `;
 
 function ButtonAddRemove({ product }) {
@@ -41,20 +52,20 @@ function ButtonAddRemove({ product }) {
   return (
     <BoxStyled>
       {quantity === 1 ? (
-        <IconButton aria-label="delete" onClick={buttonDeleteClicked}>
+        <IconButtonStyled aria-label="delete" onClick={buttonDeleteClicked}>
           <DeleteIcon />
-        </IconButton>
+        </IconButtonStyled>
       ) : (
-        <IconButton aria-label="remove" onClick={buttonRemoveClicked}>
+        <IconButtonStyled aria-label="remove" onClick={buttonRemoveClicked}>
           <RemoveIcon />
-        </IconButton>
+        </IconButtonStyled>
       )}
 
       <Typography variant="h4">{quantity}</Typography>
 
-      <IconButton onClick={buttonAddClicked} aria-label="add">
+      <IconButtonStyled onClick={buttonAddClicked} aria-label="add">
         <AddIcon />
-      </IconButton>
+      </IconButtonStyled>
     </BoxStyled>
   );
 }

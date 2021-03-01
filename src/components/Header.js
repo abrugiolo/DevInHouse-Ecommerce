@@ -19,7 +19,7 @@ const ToolbarStyled = styled(Toolbar)`
 
 const Logo = styled.img`
   cursor: pointer;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     height: 3vh;
   }
 `;
