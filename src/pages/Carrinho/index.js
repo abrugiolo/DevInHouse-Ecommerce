@@ -186,7 +186,7 @@ export default function Carrinho() {
               productListInCart?.map((product) => {
                 const total = product.price * product.quantity;
                 return (
-                  <ListItem>
+                  <ListItem key={product.id}>
                     <ItemName>
                       <Typography
                         variant="h5"

@@ -54,7 +54,7 @@ function InputSearch({ search, setSearch }) {
         onClick={handleIconClick}
         color="primary"
       >
-        <SearchIcon onClick={handleIconClick} color="primary" />
+        <SearchIcon color="primary" />
       </IconButton>
     </InputWrapper>
   );

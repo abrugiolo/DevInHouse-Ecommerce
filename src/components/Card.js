@@ -89,12 +89,11 @@ function Card({ product, detail }) {
 
   return (
     <BoxWrapper key={product?.id} detail={detail}>
-      <CardImageContent detail={detail}>
+      <CardImageContent detail={detail} onClick={clickedToDetails}>
         <CardImg
           detail={detail}
           src={product?.image}
           alt="imagem"
-          onClick={clickedToDetails}
         />
       </CardImageContent>
       <CardContentStyled>
@@ -103,7 +102,6 @@ function Card({ product, detail }) {
             <Typography variant="h5">{product?.description}</Typography>
           ) : (
             <TypographyStyled
-              //noWrap
               variant="h5"
               onClick={clickedToDetails}
             >

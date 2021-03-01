@@ -34,10 +34,14 @@ export default function DetalhesDoProduto() {
   return (
     <>
       <PageWrapper>
-        <BoxStyled>
-          <Typography variant="h2">{productDetail?.name}</Typography>
-        </BoxStyled>
-        <Card product={productDetail} detail />
+        {productDetail && (
+          <>
+            <BoxStyled>
+              <Typography variant="h2">{productDetail?.name}</Typography>
+            </BoxStyled>
+            <Card product={productDetail} detail="detail" />
+          </>
+        )}
         <ButtonStyled variant="contained" onClick={buttonBackClicked}>
           Voltar
         </ButtonStyled>

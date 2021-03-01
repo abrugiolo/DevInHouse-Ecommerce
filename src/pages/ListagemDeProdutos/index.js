@@ -41,10 +41,10 @@ export default function ListagemDeProdutos() {
   const loading = useSelector(getLoading);
   const inputSearch = useSelector(getInputSearch);
   const clicked = useSelector(getClickSearch);
-  console.log("productList", productList);
 
   useEffect(() => {
     //fetchProducts().then((response) => setProductList(response));
+    dispatch(setLoading(true));
     getProducts();
   }, [inputSearch, clicked]);
 
@@ -65,16 +65,16 @@ export default function ListagemDeProdutos() {
             : `Resultados para: ${inputSearch}`}
         </Typography>
       </BoxTitle>
-      {loading && <DivWrapper>
+      {loading ? (
+        <DivWrapper>
           <CircularProgress />
-        </DivWrapper>}
-
-      { productList?.length === 0 ? (
+        </DivWrapper>
+      ) : productList?.length === 0 ? (
         <DivWrapper>Nenhum resultado encontrado para esta busca.</DivWrapper>
       ) : (
         <BoxStyled>
           {productList?.map((product) => (
-            <Card product={product} />
+            <Card key={product?.id} product={product} />
           ))}
         </BoxStyled>
       )}
