@@ -39,7 +39,7 @@ export default createMuiTheme({
       fontSize: "min(48px, 7vw)",
       fontStyle: "normal",
       fontWeight: "500",
-      lineHeight: "24px",
+      lineHeight: "32px",
       color: "#000000",
     },
     h3: {

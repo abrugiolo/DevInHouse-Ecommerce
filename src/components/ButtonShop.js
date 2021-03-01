@@ -9,6 +9,9 @@ const ButtonStyled = styled(Button)`
   height: 44px;
   width: 226px;
   text-transform: none;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 function ButtonShop({ product }) {

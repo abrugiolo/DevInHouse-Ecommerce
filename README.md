@@ -2,7 +2,7 @@
 
 ## Prévia
 
-:dash: <a href="https://shopee-luluzinhas.surge.sh/" target="_blank">Deploy da Aplicação</a>
+:dash: <a href="https://luluzinhas.surge.sh/" target="_blank">Deploy da Aplicação</a>
 
 <br>
 
