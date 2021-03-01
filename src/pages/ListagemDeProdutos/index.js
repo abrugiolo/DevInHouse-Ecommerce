@@ -17,6 +17,10 @@ const BoxStyled = styled(Box)`
   flex-wrap: wrap;
   max-width: 1160px;
   margin: 64px auto;
+
+  @media screen and (max-width: 600px) {
+    margin: 32px auto;
+  }
 `;
 
 const BoxTitle = styled(Box)`

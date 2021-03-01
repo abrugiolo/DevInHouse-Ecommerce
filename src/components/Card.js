@@ -18,6 +18,10 @@ const BoxWrapper = styled(CardWrapper)`
   width: 258px;
   height: 448px;
   margin: 0 32px 32px 0;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin: 0 0 16px;
+  }
   ${(props) =>
     props.detail &&
     css`
@@ -29,6 +33,12 @@ const BoxWrapper = styled(CardWrapper)`
       margin-top: 64px;
       @media screen and (max-width: 800px) {
         width: 500px;
+      }
+      @media screen and (max-width: 600px) {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        margin-top: 20px;
       }
     `}
 `;

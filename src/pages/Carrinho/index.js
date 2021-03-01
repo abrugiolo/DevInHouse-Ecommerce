@@ -32,12 +32,26 @@ const Item = styled(ListItemText)`
   display: flex;
   justify-content: center;
   width: 20%;
+  margin: 0 5px;
+`;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  @media screen and (max-width: 800px) {
+    width: 30%;
+    margin: 0 5px;
+  }
 `;
 
 const ButtonStyled = styled(Button)`
   height: 44px;
   width: 226px;
   text-transform: none;
+  @media screen and (max-width: 800px) {
+    width: 180px;
+  }
 `;
 
 const ListStyled = styled(List)`
@@ -52,6 +66,11 @@ const ListStyled = styled(List)`
   }
   @media screen and (max-width: 800px) {
     width: 500px;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 350px;
+    padding: 5px;
   }
 `;
 
@@ -69,12 +88,30 @@ const ListStyled2 = styled(List)`
     .itemName {
       width: 10%;
     }
-    .item {
+    .item1, .item2, .item3 {
       width: 30%;
     }
   }
   @media screen and (max-width: 800px) {
     width: 500px;
+    .itemName {
+      width: 0;
+    }
+    .item1 {
+      width: 10%;
+    }
+    .item2, .item3 {
+      width: 40%;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    width: 350px;
+    .itemName, .item1 {
+      width: 0;
+    }
+    .item2, .item3 {
+      width: 50%;
+    }
   }
 `;
 
@@ -162,9 +199,9 @@ export default function Carrinho() {
                     <Item>
                       <Price value={product.price} />
                     </Item>
-                    <>
+                    <ButtonsWrapper>
                       <ButtonShop product={product} />
-                    </>
+                    </ButtonsWrapper>
                     <Item>
                       <Price value={total} />
                     </Item>
@@ -179,8 +216,8 @@ export default function Carrinho() {
             <ListStyled2>
               <ListItem>
                 <ItemName className="itemName" primary="" />
-                <Item className="item" primary="" />
-                <Item className="item">
+                <Item className="item1" primary="" />
+                <Item className="item2">
                   <Total>
                     <Typography variant="h2">
                       <span>R$ </span>
@@ -192,7 +229,7 @@ export default function Carrinho() {
                     </Typography>
                   </Total>
                 </Item>
-                <Item className="item">
+                <Item className="item3">
                   <ButtonStyled
                     color="primary"
                     variant="contained"
